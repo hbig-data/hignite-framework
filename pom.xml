@@ -165,6 +165,9 @@
 
     <properties>
         <junit.version>4.12</junit.version>
+        <log4j.version>2.5</log4j.version>
+
+        <mysql.version>5.1.38</mysql.version>
 
         <ignite.core.version>1.7.0</ignite.core.version>
         <ignite.spring.version>1.7.0</ignite.spring.version>
@@ -187,6 +190,24 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
 
         <!-- ========================================  Ignite Core Jar ========================================================= -->
         <dependency>
@@ -194,6 +215,10 @@
             <artifactId>ignite-clients</artifactId>
             <version>${ignite.core.version}</version>
         </dependency>
+
+
+
+
 
         <dependency>
             <groupId>org.apache.ignite</groupId>
@@ -219,6 +244,14 @@
         <finalName>${project.artifactId}-${project.version}</finalName>
         <plugins>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
