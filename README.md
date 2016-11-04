@@ -20,3 +20,13 @@
     ignite-aop：网格支持AOP
     ignite-visor-console：开源的命令行管理和监控工具
     
+## 生命周期事件类型
+
+当前支持如下生命周期事件类型：
+
+    BEFORE_NODE_START：Ignite节点的启动程序初始化之前调用
+    AFTER_NODE_START：Ignite节点启动之后调用
+    BEFORE_NODE_STOP：Ignite节点的停止程序初始化之前调用
+    AFTER_NODE_STOP：Ignite节点停止之后调用
+    
+    

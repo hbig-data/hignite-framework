@@ -173,6 +173,9 @@
         <ignite.spring.version>1.7.0</ignite.spring.version>
         <ignite.kafka.version>1.7.0</ignite.kafka.version>
         <ignite.spark.version>1.7.0</ignite.spark.version>
+        <ignite.index.version>1.7.0</ignite.index.version>
+        <ignite.visor.console.version>1.7.0</ignite.visor.console.version>
+        <ignite.geospatial.version>1.2.0-incubating</ignite.geospatial.version>
         <ignite.spark.scala.version>2.10</ignite.spark.scala.version>
 
 
@@ -216,8 +219,31 @@
             <version>${ignite.core.version}</version>
         </dependency>
 
+        <!-- 支持 SQL 查询 -->
+        <dependency>
+            <groupId>org.apache.ignite</groupId>
+            <artifactId>ignite-indexing</artifactId>
+            <version>${ignite.index.version}</version>
+        </dependency>
 
+        <!-- 地理位置索引 -->
+        <dependency>
+            <groupId>org.apache.ignite</groupId>
+            <artifactId>ignite-geospatial</artifactId>
+            <version>${ignite.geospatial.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.apache.ignite</groupId>
+            <artifactId>ignite-visor-console</artifactId>
+            <version>${ignite.visor.console.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.193</version>
+        </dependency>
 
 
         <dependency>
