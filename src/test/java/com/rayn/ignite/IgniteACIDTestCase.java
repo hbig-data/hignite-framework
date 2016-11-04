@@ -11,11 +11,13 @@ import java.util.Collection;
 import java.util.concurrent.locks.Lock;
 
 /**
+ *
+ * 在悲观模式中，访问是会获得锁，而在乐观模式中，锁是在提交阶段获得的
  * @author Rayn
  * @email liuwei412552703@163.com
  * Created by Rayn on 2016/11/3 15:33.
  */
-public class IgniteTestCase extends IgniteBase {
+public class IgniteACIDTestCase extends IgniteBase {
 
 
     /**
@@ -53,6 +55,8 @@ public class IgniteTestCase extends IgniteBase {
     /**
      * 原子性测试
      *
+     * 在悲观模式中，访问是会获得锁，而在乐观模式中，锁是在提交阶段获得的
+     *
      * @throws Exception
      */
     @Test
@@ -79,6 +83,8 @@ public class IgniteTestCase extends IgniteBase {
 
     /**
      * 事务
+     *
+     * 在悲观模式中，访问是会获得锁，而在乐观模式中，锁是在提交阶段获得的
      *
      * @throws Exception
      */

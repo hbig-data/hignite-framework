@@ -29,4 +29,3 @@
     BEFORE_NODE_STOP：Ignite节点的停止程序初始化之前调用
     AFTER_NODE_STOP：Ignite节点停止之后调用
     
-    

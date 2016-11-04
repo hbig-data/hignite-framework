@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 节点属性配置 -->
+    <bean class="org.apache.ignite.configuration.IgniteConfiguration">
+        <property name="userAttributes">
+            <map>
+                <entry key="ROLE" value="worker"/>
+            </map>
+        </property>
+
+
+    </bean>
+
+    <bean id="dataSource" ></bean>
+
+
+    <!-- 集群配置 -->
+    <bean class="org.apache.ignite.configuration.IgniteConfiguration">
+        <property name="discoverySpi">
+            <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
+                <property name="ipFinder">
+                    <!-- 多播发现 -->
+                    <!--<bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.multicast.TcpDiscoveryMulticastIpFinder">-->
+                        <!--<property name="multicastGroup" value="228.10.10.157"/>-->
+                    <!--</bean>-->
+
+                    <!--&lt;!&ndash; 基于静态IP的发现 &ndash;&gt;-->
+                    <!--<bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder">-->
+                        <!--<property name="addresses">-->
+                            <!--<list>-->
+                                <!--&lt;!&ndash;-->
+                                    <!--Explicitly specifying address of a local node to let it start-->
+                                    <!--and operate normally even if there is no more nodes in the cluster.-->
+                                    <!--You can also optionally specify an individual port or port range.-->
+                                <!--&ndash;&gt;-->
+                                <!--<value>1.2.3.4</value>-->
+                                <!--&lt;!&ndash;-->
+                                    <!--IP Address and optional port range of a remote node.-->
+                                    <!--You can also optionally specify an individual port and don't set-->
+                                    <!--the port range at all.-->
+                                <!--&ndash;&gt;-->
+                                <!--<value>1.2.3.5:47500..47509</value>-->
+                            <!--</list>-->
+                        <!--</property>-->
+                    <!--</bean>-->
+
+                    <!--&lt;!&ndash; 基于多播和静态IP的发现 &ndash;&gt;-->
+                    <!--<bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.multicast.TcpDiscoveryMulticastIpFinder">-->
+                        <!--<property name="multicastGroup" value="228.10.10.157"/>-->
+                        <!--&lt;!&ndash; list of static IP addresses&ndash;&gt;-->
+                        <!--<property name="addresses">-->
+                            <!--<list>-->
+                                <!--<value>1.2.3.4</value>-->
+                                <!--&lt;!&ndash;-->
+                                    <!--IP Address and optional port range.-->
+                                    <!--You can also optionally specify an individual port.-->
+                                <!--&ndash;&gt;-->
+                                <!--<value>1.2.3.5:47500..47509</value>-->
+                            <!--</list>-->
+                        <!--</property>-->
+                    <!--</bean>-->
+
+                    <!--&lt;!&ndash; 基于 JDBC 服务发现 &ndash;&gt;-->
+                    <!--<bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.jdbc.TcpDiscoveryJdbcIpFinder">-->
+                        <!--<property name="dataSource" ref="dataSource"/>-->
+                    <!--</bean>-->
+
+
+                    <!-- 基于 Zookeeper 服务发现 -->
+                    <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.zk.TcpDiscoveryZookeeperIpFinder">
+                        <property name="zkConnectionString" value="127.0.0.1:2181"/>
+                    </bean>
+
+                </property>
+            </bean>
+        </property>
+    </bean>
+</beans>

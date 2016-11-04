@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 客户端模式 -->
+    <bean class="org.apache.ignite.configuration.IgniteConfiguration">
+        <!-- Enable client mdoe. -->
+        <property name="clientMode" value="true"/>
+
+        <!-- 管理慢客户端 -->
+        <property name="communicationSpi">
+            <bean class="org.apache.ignite.spi.communication.tcp.TcpCommunicationSpi">
+                <property name="slowClientQueueLimit" value="1000"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>
